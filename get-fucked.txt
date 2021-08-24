@@ -1,0 +1,11 @@
+function gottem() {
+    echo "get fucked"
+    data=$(curl -s "https://api.waifu.pics/nsfw/trap" | jq '.url')
+    cmd="curl -s $data > waifu.png"
+    eval "$cmd"
+    script="tell application \"Finder\" to set desktop picture to POSIX file \"$HOME/waifu.png\""
+    osascript -e $script 
+}
+
+gottem()
+
